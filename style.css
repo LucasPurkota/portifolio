@@ -1,0 +1,199 @@
+/* Reset e Variáveis */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Importante para o cálculo de largura */
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: #333; /* Cor mais clara para contraste */
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* Header fixo para facilitar navegação */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav {
+  background-color: #1a1a1a;
+  padding: 1rem;
+}
+
+.navigation {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: #ddd;
+  padding: 8px 15px;
+  transition: 0.3s; /* Transição suave no hover */
+}
+
+.navigation a:hover {
+  background-color: #059988;
+  color: #fff;
+  border-radius: 4px;
+}
+
+/* Main Content */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center; /* Centraliza o conteúdo */
+  p {
+    text-align: justify;
+  }
+}
+
+.profile {
+  width: 250px; /* Tamanho mais equilibrado */
+  height: 250px;
+  object-fit: cover;
+  /* border: 3px solid #059988;d */
+  margin-bottom: 20px;
+  border-radius: 50%;
+}
+
+section {
+  padding: 60px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #059988;
+  text-transform: uppercase;
+}
+
+/* Estilização das Listas (Stacks/Projects) */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.project-card {
+    background: #444;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+}
+
+.project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 20px;
+}
+
+.project-info h3 {
+    color: #059988;
+    margin-bottom: 10px;
+}
+
+.project-info p {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.project-info a {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #059988;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.project-info a:hover {
+    background: #04796c;
+}
+/* Ajustado para .contacts (plural) */
+#contacts img {
+  width: 28px; /* Aumentei um pouquinho para melhor visibilidade */
+  height: 28px;
+  transition: transform 0.3s ease; /* Efeito suave ao passar o mouse */
+}
+
+#contacts ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  padding: 20px 0;
+}
+
+#contacts img:hover {
+  transform: scale(1.2); /* O ícone cresce levemente no hover */
+  filter: brightness(1.2);
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+}
+
+.slider {
+  width: 100%;
+  height: 100px;
+  margin: auto;
+  overflow: hidden; /* Esconde os ícones que saem da tela */
+  position: relative;
+  background: #333; /* Ou a cor de fundo da sua seção */
+  display: flex;
+  align-items: center;
+}
+
+/* A trilha que carrega os ícones */
+.slide-track {
+  display: flex;
+  width: calc(150px * 26); /* Largura total: (tamanho do ícone + gap) * total de ícones (original + cópia) */
+  animation: scroll 40s linear infinite;
+  gap: 50px;
+}
+
+/* Estilo dos ícones */
+.slide-track i {
+  font-size: 60px;
+  display: flex;
+  align-items: center;
+}
+
+/* Pausar ao passar o mouse (opcional, mas legal para o usuário ver) */
+.slider:hover .slide-track {
+  animation-play-state: paused;
+}
+
+/* A lógica do movimento */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-150px * 13)); /* Move exatamente a metade da largura total (a lista original) */
+  }
+}
