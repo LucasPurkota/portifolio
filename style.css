@@ -2,12 +2,14 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Importante para o cálculo de largura */
+  box-sizing: border-box;
+  /* Importante para o cálculo de largura */
   font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-  background-color: #333; /* Cor mais clara para contraste */
+  background-color: #333;
+  /* Cor mais clara para contraste */
   color: #fff;
   line-height: 1.6;
 }
@@ -21,21 +23,42 @@ body {
 
 .nav {
   background-color: #1a1a1a;
-  padding: 1rem;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Logo */
+.logo {
+  display: none;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.logo:hover {
+  color: #059988;
+}
+
+
+/* Menu */
 .navigation {
   list-style: none;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 15px;
+  padding: 0;
+  margin: 0;
 }
 
 .navigation a {
   text-decoration: none;
   color: #ddd;
   padding: 8px 15px;
-  transition: 0.3s; /* Transição suave no hover */
+  transition: 0.3s;
 }
 
 .navigation a:hover {
@@ -44,19 +67,104 @@ body {
   border-radius: 4px;
 }
 
+
+/* Checkbox escondido */
+#menu-check {
+  display: none;
+}
+
+
+/* Botão hamburguer */
+.menu-toggle {
+  display: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+
+/* ===========================
+   RESPONSIVIDADE MOBILE
+=========================== */
+
+@media (max-width: 768px) {
+
+  .nav {
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+  }
+
+
+  /* Mostra nome no mobile */
+  .logo {
+    display: block;
+  }
+
+
+  /* Mostra botão */
+  .menu-toggle {
+    display: block;
+  }
+
+
+  /* Menu fechado */
+  .navigation {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 220px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background-color: #1a1a1a;
+    padding: 20px 0;
+    border-radius: 0 0 0 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+
+
+  .navigation li {
+    width: 100%;
+    text-align: center;
+  }
+
+
+  .navigation a {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+  }
+
+
+  /* Menu aberto */
+  #menu-check:checked~.navigation {
+    display: flex;
+  }
+
+
+  /* Troca hamburguer por X */
+  #menu-check:checked+.menu-toggle i::before {
+    content: "\f00d";
+  }
+}
+
 /* Main Content */
 main {
   max-width: 1000px;
   margin: 0 auto;
   padding: 40px 20px;
-  text-align: center; /* Centraliza o conteúdo */
+  text-align: center;
+
+  /* Centraliza o conteúdo */
   p {
     text-align: justify;
   }
 }
 
 .profile {
-  width: 250px; /* Tamanho mais equilibrado */
+  width: 250px;
+  /* Tamanho mais equilibrado */
   height: 250px;
   object-fit: cover;
   /* border: 3px solid #059988;d */
@@ -70,9 +178,9 @@ section {
 }
 
 #about p {
-    max-width: 850px;
-    margin: 0 auto;
-    margin-bottom: 5px;
+  max-width: 850px;
+  margin: 0 auto;
+  margin-bottom: 5px;
 }
 
 h2 {
@@ -83,62 +191,65 @@ h2 {
 
 /* Estilização das Listas (Stacks/Projects) */
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-    margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
 }
 
 .project-card {
-    background: #444;
-    border-radius: 15px;
-    overflow: hidden;
-    transition: 0.3s;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  background: #444;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .project-card:hover {
-    transform: translateY(-8px);
+  transform: translateY(-8px);
 }
 
 .project-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
 }
 
 .project-info {
-    padding: 20px;
+  padding: 20px;
 }
 
 .project-info h3 {
-    color: #059988;
-    margin-bottom: 10px;
+  color: #059988;
+  margin-bottom: 10px;
 }
 
 .project-info p {
-    margin-bottom: 15px;
-    text-align: left;
+  margin-bottom: 15px;
+  text-align: left;
 }
 
 .project-info a {
-    display: inline-block;
-    padding: 10px 15px;
-    background: #059988;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: 0.3s;
+  display: inline-block;
+  padding: 10px 15px;
+  background: #059988;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s;
 }
 
 .project-info a:hover {
-    background: #04796c;
+  background: #04796c;
 }
+
 /* Ajustado para .contacts (plural) */
 #contacts img {
-  width: 28px; /* Aumentei um pouquinho para melhor visibilidade */
+  width: 28px;
+  /* Aumentei um pouquinho para melhor visibilidade */
   height: 28px;
-  transition: transform 0.3s ease; /* Efeito suave ao passar o mouse */
+  transition: transform 0.3s ease;
+  /* Efeito suave ao passar o mouse */
 }
 
 #contacts ul {
@@ -150,7 +261,8 @@ h2 {
 }
 
 #contacts img:hover {
-  transform: scale(1.2); /* O ícone cresce levemente no hover */
+  transform: scale(1.2);
+  /* O ícone cresce levemente no hover */
   filter: brightness(1.2);
 }
 
@@ -167,9 +279,11 @@ footer {
   width: 100%;
   height: 100px;
   margin: auto;
-  overflow: hidden; /* Esconde os ícones que saem da tela */
+  overflow: hidden;
+  /* Esconde os ícones que saem da tela */
   position: relative;
-  background: #333; /* Ou a cor de fundo da sua seção */
+  background: #333;
+  /* Ou a cor de fundo da sua seção */
   display: flex;
   align-items: center;
 }
@@ -177,7 +291,8 @@ footer {
 /* A trilha que carrega os ícones */
 .slide-track {
   display: flex;
-  width: calc(150px * 26); /* Largura total: (tamanho do ícone + gap) * total de ícones (original + cópia) */
+  width: calc(150px * 26);
+  /* Largura total: (tamanho do ícone + gap) * total de ícones (original + cópia) */
   animation: scroll 40s linear infinite;
   gap: 50px;
 }
@@ -199,7 +314,9 @@ footer {
   0% {
     transform: translateX(0);
   }
+
   100% {
-    transform: translateX(calc(-150px * 13)); /* Move exatamente a metade da largura total (a lista original) */
+    transform: translateX(calc(-150px * 13));
+    /* Move exatamente a metade da largura total (a lista original) */
   }
 }
