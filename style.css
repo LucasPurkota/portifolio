@@ -69,6 +69,12 @@ section {
   border-bottom: 1px solid #ddd;
 }
 
+#about p {
+    max-width: 850px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+
 h2 {
   margin-bottom: 20px;
   color: #059988;
